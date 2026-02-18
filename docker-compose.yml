@@ -1,0 +1,19 @@
+services:
+  kaernten-funkt:
+    build: .
+    container_name: kaernten-funkt
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3420:80"
+    networks:
+      - cloudflared-tunnel
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  cloudflared-tunnel:
+    external: true

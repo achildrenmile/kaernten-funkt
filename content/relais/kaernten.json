@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Dobratsch",
+    "callsign": "OE8XDK",
+    "lat": 46.602,
+    "lon": 13.672,
+    "band": "2m/70cm",
+    "description": "Relaisstation am Dobratsch bei Villach"
+  },
+  {
+    "name": "Gerlitzen",
+    "callsign": "OE8XNK",
+    "frequency": "145.7625 MHz",
+    "shift": "-600 kHz",
+    "ctcss": "88.5 Hz",
+    "lat": 46.694,
+    "lon": 13.903,
+    "band": "2m",
+    "description": "2m-Relais auf der Gerlitzen, Notfunkübungen"
+  },
+  {
+    "name": "Goldeck",
+    "lat": 46.776,
+    "lon": 13.468,
+    "band": "2m/70cm",
+    "description": "Relaisstation am Goldeck bei Spittal an der Drau"
+  },
+  {
+    "name": "Pyramidenkogel",
+    "lat": 46.614,
+    "lon": 14.153,
+    "band": "2m/70cm",
+    "description": "Relaisstation am Pyramidenkogel am Wörthersee"
+  },
+  {
+    "name": "Magdalensberg",
+    "lat": 46.729,
+    "lon": 14.432,
+    "band": "2m/70cm",
+    "description": "Relaisstation am Magdalensberg bei Klagenfurt"
+  },
+  {
+    "name": "Koralm",
+    "lat": 46.775,
+    "lon": 14.964,
+    "band": "2m/70cm",
+    "description": "Relaisstation auf der Koralm an der Grenze zur Steiermark"
+  },
+  {
+    "name": "Petzen",
+    "lat": 46.471,
+    "lon": 14.731,
+    "band": "2m/70cm",
+    "description": "Relaisstation auf der Petzen an der slowenischen Grenze"
+  }
+]

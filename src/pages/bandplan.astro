@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Bandplan – KÄRNTEN FUNKT" description="Bandpläne für Amateurfunk, CB-Funk und PMR-446. Die wichtigsten Frequenzbereiche im Überblick.">
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Bandplan</h1>
+      <p class="text-white/80 text-lg">Die wichtigsten Frequenzbereiche auf einen Blick</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- PMR -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-sm font-bold">PMR</span>
+          PMR-446
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-bg-alt">
+                <th class="text-left p-3 font-medium">Kanal</th>
+                <th class="text-left p-3 font-medium">Frequenz</th>
+                <th class="text-left p-3 font-medium">Bemerkung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100"><td class="p-3">1</td><td class="p-3">446.00625 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">2</td><td class="p-3">446.01875 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">3</td><td class="p-3">446.03125 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">4</td><td class="p-3">446.04375 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">5</td><td class="p-3">446.05625 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">6</td><td class="p-3">446.06875 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">7</td><td class="p-3">446.08125 MHz</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100 bg-accent/5 font-medium"><td class="p-3">8</td><td class="p-3">446.09375 MHz</td><td class="p-3 text-accent">KÄRNTEN FUNKT – Hauptkanal</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-text-light text-sm mt-4">PMR-446: 0,5 Watt ERP, keine Lizenz erforderlich. 16 Kanäle verfügbar (Kanal 9–16 seit 2018).</p>
+      </div>
+
+      <!-- CB -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 bg-accent/20 text-accent rounded-full flex items-center justify-center text-sm font-bold">CB</span>
+          CB-Funk (27 MHz)
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-bg-alt">
+                <th class="text-left p-3 font-medium">Kanal</th>
+                <th class="text-left p-3 font-medium">Frequenz</th>
+                <th class="text-left p-3 font-medium">Modus</th>
+                <th class="text-left p-3 font-medium">Bemerkung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100"><td class="p-3">1</td><td class="p-3">26.965 MHz</td><td class="p-3">AM/FM</td><td class="p-3"></td></tr>
+              <tr class="border-b border-gray-100 bg-accent/5 font-medium"><td class="p-3">8</td><td class="p-3">27.055 MHz</td><td class="p-3">FM</td><td class="p-3 text-accent">KÄRNTEN FUNKT – Hauptkanal</td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">9</td><td class="p-3">27.065 MHz</td><td class="p-3">AM/FM</td><td class="p-3">Internationaler Notrufkanal</td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">19</td><td class="p-3">27.185 MHz</td><td class="p-3">FM</td><td class="p-3">LKW-Kanal / Trucker</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-text-light text-sm mt-4">CB-Funk: 4 Watt FM / 4 Watt AM / 12 Watt SSB (PEP), 40 Kanäle, keine Lizenz erforderlich.</p>
+      </div>
+
+      <!-- AFU -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 bg-primary/10 text-primary rounded-full flex items-center justify-center text-sm font-bold">AFU</span>
+          Amateurfunk – wichtige Bänder
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-bg-alt">
+                <th class="text-left p-3 font-medium">Band</th>
+                <th class="text-left p-3 font-medium">Frequenzbereich</th>
+                <th class="text-left p-3 font-medium">Nutzung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100"><td class="p-3">80m</td><td class="p-3">3,5–3,8 MHz</td><td class="p-3">Nahverkehr, Notfunk (SSB/CW)</td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">40m</td><td class="p-3">7,0–7,2 MHz</td><td class="p-3">Europa-Verkehr, Notfunk</td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">20m</td><td class="p-3">14,0–14,35 MHz</td><td class="p-3">DX-Verkehr weltweit</td></tr>
+              <tr class="border-b border-gray-100 bg-primary/5 font-medium"><td class="p-3">2m</td><td class="p-3">144–146 MHz</td><td class="p-3">Lokal/Regional, Relais, Notfunk – Hauptband in Kärnten</td></tr>
+              <tr class="border-b border-gray-100"><td class="p-3">70cm</td><td class="p-3">430–440 MHz</td><td class="p-3">Lokal, Relais, Digital (DMR/D-STAR)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-text-light text-sm mt-4">Amateurfunk erfordert eine gültige Lizenz. Detaillierte Bandpläne gibt es beim <a href="https://oevsv.at" target="_blank" rel="noopener" class="text-primary hover:underline">ÖVSV</a>.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

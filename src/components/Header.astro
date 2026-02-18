@@ -1,0 +1,75 @@
+---
+const navItems = [
+  { href: '/', label: 'Start' },
+  { href: '/funkuebungen', label: 'Funkübungen' },
+  { href: '/kurs', label: 'AFU-Kurs' },
+  { href: '/notfallkommunikation', label: 'Notfall' },
+  { href: '/geraete', label: 'Geräte' },
+  { href: '/karte', label: 'Karte' },
+  { href: '/bandplan', label: 'Bandplan' },
+  { href: '/news', label: 'News' },
+  { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/mitmachen', label: 'Mitmachen' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-primary text-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-3 shrink-0">
+        <img src="/logo.jpg" alt="KÄRNTEN FUNKT Logo" class="h-10 w-10 rounded-full" />
+        <span class="font-bold text-lg hidden sm:block">KÄRNTEN FUNKT</span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class:list={[
+              'px-3 py-2 rounded text-sm font-medium transition-colors',
+              currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+                ? 'bg-white/20 text-white'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded hover:bg-white/10" aria-label="Menü öffnen">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-menu" class="lg:hidden hidden border-t border-white/20">
+    <div class="px-4 py-2 space-y-1">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class:list={[
+            'block px-3 py-2 rounded text-sm font-medium transition-colors',
+            currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+              ? 'bg-white/20 text-white'
+              : 'text-white/80 hover:text-white hover:bg-white/10'
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

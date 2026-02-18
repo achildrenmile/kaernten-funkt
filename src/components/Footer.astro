@@ -1,0 +1,59 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-primary-dark text-white/80 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/logo.jpg" alt="KÄRNTEN FUNKT" class="h-10 w-10 rounded-full" />
+          <div>
+            <div class="font-bold text-white">KÄRNTEN FUNKT</div>
+            <div class="text-sm text-accent">SEI DABEI! … SEI AUTARK!</div>
+          </div>
+        </div>
+        <p class="text-sm">
+          Amateurfunk, CB-Funk und PMR Funk – Verständigung über Funk für Jedermann.
+          Notfallkommunikation und Krisenvorsorge in Kärnten.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white mb-4">Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/funkuebungen" class="hover:text-white transition-colors">Funkübungen</a></li>
+          <li><a href="/kurs" class="hover:text-white transition-colors">Amateurfunkkurs</a></li>
+          <li><a href="/notfallkommunikation" class="hover:text-white transition-colors">Notfallkommunikation</a></li>
+          <li><a href="/mitmachen" class="hover:text-white transition-colors">Mitmachen</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white mb-4">Kontakt</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="mailto:info@kaernten-funkt.at" class="hover:text-white transition-colors">
+              info@kaernten-funkt.at
+            </a>
+          </li>
+          <li>9500 Villach, Kärnten</li>
+          <li>
+            <a href="https://t.me/kaernten_funkt" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+              Telegram: Kanal 8
+            </a>
+          </li>
+        </ul>
+        <div class="mt-4 space-x-2 text-sm">
+          <a href="/impressum" class="hover:text-white transition-colors">Impressum</a>
+          <span>|</span>
+          <a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
+      &copy; {year} KÄRNTEN FUNKT. Alle Rechte vorbehalten.
+    </div>
+  </div>
+</footer>

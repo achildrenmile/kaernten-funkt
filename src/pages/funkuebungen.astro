@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import funkuebungen from '../../content/funkuebungen.json';
+---
+
+<Layout title="Funkübungen – KÄRNTEN FUNKT" description="Regelmäßige Funkübungen in Kärnten: PMR-Funktest, AFU-Notfunkübung, CB-Funk Kärntentest und Funkrunde Dobratsch.">
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Funkübungen</h1>
+      <p class="text-white/80 text-lg">Regelmäßiges Üben für den Ernstfall – mach mit!</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {funkuebungen.map(uebung => (
+          <div class="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
+            <div class="flex items-start justify-between mb-4">
+              <h2 class="text-2xl font-bold">{uebung.name}</h2>
+              {uebung.license ? (
+                <span class="bg-secondary/10 text-secondary text-sm font-medium px-3 py-1 rounded-full">Lizenz nötig</span>
+              ) : (
+                <span class="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">Lizenzfrei</span>
+              )}
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="font-medium text-primary w-24">Wann:</span>
+                <span class="text-accent font-medium">{uebung.schedule}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-medium text-primary w-24">Band:</span>
+                <span>{uebung.band}</span>
+              </div>
+              {uebung.channel && (
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-primary w-24">Kanal:</span>
+                  <span>{uebung.channel}</span>
+                </div>
+              )}
+              {uebung.frequency && (
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-primary w-24">Frequenz:</span>
+                  <span>{uebung.frequency}</span>
+                </div>
+              )}
+              {uebung.ctcss && (
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-primary w-24">CTCSS:</span>
+                  <span>{uebung.ctcss}</span>
+                </div>
+              )}
+            </div>
+            <p class="mt-4 text-text-light">{uebung.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-bg-alt">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8">Was passiert bei einer Funkübung?</h2>
+      <div class="space-y-6 text-text-light">
+        <p>
+          Eine Funkübung ist ein organisierter Test, bei dem Funker zu einer festgelegten Zeit auf einer bestimmten Frequenz
+          oder einem Kanal einen kurzen Check-In machen. Dabei wird geprüft:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Erreichbarkeit</strong> – Kannst du gehört werden?</li>
+          <li><strong>Signalqualität</strong> – Wie gut ist dein Signal?</li>
+          <li><strong>Reichweite</strong> – Wie weit reicht dein Funksignal?</li>
+          <li><strong>Ausrüstung</strong> – Funktioniert dein Gerät einwandfrei?</li>
+        </ul>
+        <p>
+          Typischerweise meldet sich ein Leitfunker an und ruft die Teilnehmer der Reihe nach auf.
+          Jeder gibt seinen Standort, seine Ausrüstung und die Signalqualität durch. Das Ganze dauert
+          meist nur 15–30 Minuten.
+        </p>
+        <p class="font-medium text-text">
+          Du brauchst für die PMR- und CB-Funk-Tests keine Lizenz – einfach einschalten und mitmachen!
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const newsFiles = import.meta.glob('../../content/news/*.md', { eager: true }) as Record<string, { frontmatter: Record<string, string>; compiledContent: () => string; url?: string }>;
+const news = Object.entries(newsFiles)
+  .map(([path, n]) => ({
+    ...n.frontmatter,
+    slug: path.split('/').pop()?.replace('.md', ''),
+    content: n.compiledContent()
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const categories = [...new Set(news.map(n => n.category))];
+---
+
+<Layout title="Neuigkeiten – KÄRNTEN FUNKT" description="Aktuelle Neuigkeiten rund um Amateurfunk, CB-Funk und PMR in Kärnten.">
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Neuigkeiten</h1>
+      <p class="text-white/80 text-lg">Aktuelles aus der Kärntner Funk-Community</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="text-sm font-medium text-text-light mr-2">Kategorien:</span>
+        {categories.map(cat => (
+          <span class="bg-bg-alt text-text px-3 py-1 rounded-full text-sm">{cat}</span>
+        ))}
+      </div>
+
+      <div class="space-y-8">
+        {news.map(article => (
+          <article class="bg-white border border-gray-200 rounded-xl p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="bg-accent/10 text-accent text-xs font-medium px-3 py-1 rounded-full">{article.category}</span>
+              <span class="text-text-light text-sm">{new Date(article.date).toLocaleDateString('de-AT', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            </div>
+            <h2 class="text-2xl font-bold mb-3">{article.title}</h2>
+            <p class="text-text-light mb-4">{article.excerpt}</p>
+            <div class="prose prose-sm max-w-none text-text-light" set:html={article.content} />
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

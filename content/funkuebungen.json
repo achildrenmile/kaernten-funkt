@@ -1,0 +1,34 @@
+[
+  {
+    "name": "PMR-Funktest",
+    "schedule": "Samstags zum Sirenenalarm",
+    "band": "PMR-446",
+    "channel": "Kanal 8",
+    "description": "Kurzer Check-In über PMR zur Reichweitenbestimmung",
+    "license": false
+  },
+  {
+    "name": "AFU-Notfunkübung",
+    "schedule": "Sonntags, 18:45 Uhr",
+    "band": "2m FM",
+    "frequency": "145,7625 MHz (Relais Gerlitzen OE8XNK)",
+    "ctcss": "88,5 Hz",
+    "description": "Notfunkübung über das 2m-Relais – Lizenz erforderlich",
+    "license": true
+  },
+  {
+    "name": "CB-Funk Kärntentest",
+    "schedule": "Sonntags, 20:00 Uhr",
+    "band": "CB-Funk",
+    "channel": "Kanal 8 FM",
+    "description": "Kärntenweiter CB-Funktest, innerhalb der Bezirke",
+    "license": false
+  },
+  {
+    "name": "Funkrunde Dobratsch",
+    "schedule": "Täglich ab 19:00 Uhr",
+    "band": "AFU",
+    "description": "Tägliche Funkrunde für AFU-Themen und Austausch",
+    "license": true
+  }
+]

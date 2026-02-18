@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import relais from '../../content/relais/kaernten.json';
+---
+
+<Layout title="Relaisstationen-Karte – KÄRNTEN FUNKT" description="Interaktive Karte der Relaisstationen in Kärnten. Dobratsch, Gerlitzen, Goldeck, Pyramidenkogel und mehr.">
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Relaisstationen-Karte</h1>
+      <p class="text-white/80 text-lg">Amateurfunk-Relais in Kärnten im Überblick</p>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <div id="map" class="w-full h-[500px] rounded-xl shadow-lg border border-gray-200"></div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8">Relaisstationen</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {relais.map(r => (
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-1">{r.name}</h3>
+            {r.callsign && <p class="text-accent font-mono font-medium mb-2">{r.callsign}</p>}
+            <p class="text-text-light text-sm mb-3">{r.description}</p>
+            <div class="text-sm space-y-1">
+              <p><strong>Band:</strong> {r.band}</p>
+              {r.frequency && <p><strong>Frequenz:</strong> {r.frequency}</p>}
+              {r.shift && <p><strong>Shift:</strong> {r.shift}</p>}
+              {r.ctcss && <p><strong>CTCSS:</strong> {r.ctcss}</p>}
+              <p class="text-text-light"><strong>Koordinaten:</strong> {r.lat}, {r.lon}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script is:inline define:vars={{ relais }}>
+    document.addEventListener('DOMContentLoaded', function() {
+      const map = L.map('map').setView([46.65, 14.1], 9);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      relais.forEach(function(r) {
+        const popup = '<strong>' + r.name + '</strong>' +
+          (r.callsign ? '<br><span style="color:#d69e2e;font-family:monospace">' + r.callsign + '</span>' : '') +
+          '<br>' + r.band +
+          (r.frequency ? '<br>Frequenz: ' + r.frequency : '') +
+          (r.shift ? '<br>Shift: ' + r.shift : '') +
+          (r.ctcss ? '<br>CTCSS: ' + r.ctcss : '');
+        L.marker([r.lat, r.lon]).addTo(map).bindPopup(popup);
+      });
+    });
+  </script>
+</Layout>

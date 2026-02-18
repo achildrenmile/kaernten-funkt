@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import funkuebungen from '../../content/funkuebungen.json';
+
+const newsFiles = import.meta.glob('../../content/news/*.md', { eager: true }) as Record<string, { frontmatter: Record<string, string>; compiledContent: () => string }>;
+const news = Object.values(newsFiles)
+  .map(n => n.frontmatter)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 4);
+---
+
+<Layout title="KÄRNTEN FUNKT – Amateurfunk, CB-Funk und PMR Funk in Kärnten">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary via-primary-light to-primary text-white py-20 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <img src="/logo.jpg" alt="KÄRNTEN FUNKT" class="w-28 h-28 rounded-full mx-auto mb-6 shadow-lg border-4 border-accent" />
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">KÄRNTEN FUNKT</h1>
+      <p class="text-accent text-xl md:text-2xl font-bold mb-2">SEI DABEI! … SEI AUTARK!</p>
+      <p class="text-white/80 text-lg md:text-xl mb-4">Amateurfunk, CB-Funk und PMR Funk</p>
+      <p class="text-white/60 text-base md:text-lg mb-8">Verständigung über Funk für Jedermann</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/mitmachen" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition-colors text-lg">
+          Mach mit!
+        </a>
+        <a href="/kurs" class="border-2 border-white/40 hover:bg-white/10 text-white font-bold px-8 py-3 rounded-lg transition-colors text-lg">
+          Kurs starten
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drei Säulen -->
+  <section class="py-16 bg-bg-alt">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Drei Wege in den Funk</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+            AFU
+          </div>
+          <h3 class="text-xl font-bold mb-3">Amateurfunk</h3>
+          <p class="text-text-light">
+            Weltweite Kommunikation auf allen Bändern. Von Kurzwelle bis Mikrowelle – mit Lizenz steht dir alles offen.
+            Notfunkfähig und krisensicher.
+          </p>
+          <a href="/kurs" class="inline-block mt-4 text-primary font-medium hover:text-primary-light">Kurs ansehen &rarr;</a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+            CB
+          </div>
+          <h3 class="text-xl font-bold mb-3">CB-Funk</h3>
+          <p class="text-text-light">
+            Lizenzfrei und sofort einsatzbereit. Ideal für die Kommunikation innerhalb des Bezirks –
+            mit Reichweiten bis 30 km und mehr.
+          </p>
+          <a href="/geraete" class="inline-block mt-4 text-primary font-medium hover:text-primary-light">Geräte ansehen &rarr;</a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+            PMR
+          </div>
+          <h3 class="text-xl font-bold mb-3">PMR-446 Funk</h3>
+          <p class="text-text-light">
+            Der einfachste Einstieg in den Funk. Lizenzfrei, günstig und perfekt für Familie und Nachbarschaft.
+            Ideal für den Einstieg.
+          </p>
+          <a href="/mitmachen" class="inline-block mt-4 text-primary font-medium hover:text-primary-light">Jetzt mitmachen &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funkübungen -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4">Nächste Funkübungen</h2>
+      <p class="text-text-light text-center mb-12 max-w-2xl mx-auto">
+        Regelmäßige Übungen stärken die Kommunikationsfähigkeit im Ernstfall. Hier sind unsere festen Termine:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {funkuebungen.map(uebung => (
+          <div class="border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-lg font-bold">{uebung.name}</h3>
+              {uebung.license ? (
+                <span class="bg-secondary/10 text-secondary text-xs font-medium px-2 py-1 rounded">Lizenz nötig</span>
+              ) : (
+                <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded">Lizenzfrei</span>
+              )}
+            </div>
+            <p class="text-accent font-medium mb-2">{uebung.schedule}</p>
+            <p class="text-text-light text-sm mb-2">{uebung.description}</p>
+            <div class="text-sm text-text-light">
+              <span class="font-medium">Band:</span> {uebung.band}
+              {uebung.channel && <span> | <span class="font-medium">Kanal:</span> {uebung.channel}</span>}
+              {uebung.frequency && <span> | {uebung.frequency}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/funkuebungen" class="text-primary font-medium hover:text-primary-light">Alle Funkübungen ansehen &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="py-16 bg-bg-alt">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Neuigkeiten</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {news.map(article => (
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+            <span class="text-xs font-medium text-accent">{article.category}</span>
+            <h3 class="text-lg font-bold mt-2 mb-3">{article.title}</h3>
+            <p class="text-text-light text-sm mb-4">{article.excerpt}</p>
+            <p class="text-xs text-text-light">{new Date(article.date).toLocaleDateString('de-AT')}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/news" class="text-primary font-medium hover:text-primary-light">Alle Neuigkeiten &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary text-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Bereit mitzumachen?</h2>
+      <p class="text-white/80 text-lg mb-8">
+        Egal ob du schon Funkerfahrung hast oder ganz neu einsteigst – bei KÄRNTEN FUNKT bist du willkommen.
+        Tritt unserem Telegram-Kanal bei oder melde dich zum Kurs an!
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://t.me/kaernten_funkt" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition-colors">
+          Telegram beitreten
+        </a>
+        <a href="mailto:info@kaernten-funkt.at" class="border-2 border-white/40 hover:bg-white/10 text-white font-bold px-8 py-3 rounded-lg transition-colors">
+          E-Mail schreiben
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
