@@ -1,6 +1,6 @@
 services:
   kaernten-funkt:
-    build: .
+    image: kaernten-funkt:latest
     container_name: kaernten-funkt
     restart: unless-stopped
     ports:
