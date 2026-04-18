@@ -75,10 +75,11 @@ log_ok "Environment configured"
 
 # Step 4: Build Docker image
 log_info "Building Docker image on remote..."
+CACHEBUST=$(date +%s)
 if [ "$REBUILD" = true ]; then
-    ssh ${DEPLOY_HOST} "cd ${REMOTE_DIR} && docker build --no-cache -t ${IMAGE_NAME} ."
+    ssh ${DEPLOY_HOST} "cd ${REMOTE_DIR} && docker build --no-cache --build-arg CACHEBUST=${CACHEBUST} -t ${IMAGE_NAME} ."
 else
-    ssh ${DEPLOY_HOST} "cd ${REMOTE_DIR} && docker build -t ${IMAGE_NAME} ."
+    ssh ${DEPLOY_HOST} "cd ${REMOTE_DIR} && docker build --build-arg CACHEBUST=${CACHEBUST} -t ${IMAGE_NAME} ."
 fi
 log_ok "Docker image built"
 
