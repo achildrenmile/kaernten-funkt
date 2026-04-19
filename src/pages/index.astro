@@ -16,14 +16,14 @@ const news = Object.values(newsFiles)
       <img src="/logo.jpg" alt="KÄRNTEN FUNKT" class="w-28 h-28 rounded-full mx-auto mb-6 shadow-lg border-4 border-accent" />
       <h1 class="text-4xl md:text-6xl font-bold mb-4">KÄRNTEN FUNKT</h1>
       <p class="text-accent text-xl md:text-2xl font-bold mb-2">SEI DABEI! … SEI AUTARK!</p>
-      <p class="text-white/80 text-lg md:text-xl mb-4">Amateurfunk, CB-Funk und PMR Funk</p>
-      <p class="text-white/60 text-base md:text-lg mb-8">Verständigung über Funk für Jedermann</p>
+      <p class="text-white text-lg md:text-xl mb-4">Wenn Handy und Internet ausfallen, funken wir weiter.</p>
+      <p class="text-white/60 text-base md:text-lg mb-8">Kärntens Funk-Netzwerk für Krisenvorsorge und Community – offen für alle, auch ohne Lizenz.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/mitmachen" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition-colors text-lg">
-          Mach mit!
+          Kostenlos reinschnuppern
         </a>
         <a href="/kurs" class="border-2 border-white/40 hover:bg-white/10 text-white font-bold px-8 py-3 rounded-lg transition-colors text-lg">
-          Kurs starten
+          Amateurfunk-Kurs starten
         </a>
       </div>
     </div>
@@ -70,6 +70,59 @@ const news = Object.values(newsFiles)
           <a href="/mitmachen" class="inline-block mt-4 text-primary font-medium hover:text-primary-light">Jetzt mitmachen &rarr;</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / Zahlen -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-4xl font-bold text-primary">4+</p>
+          <p class="text-text-light text-sm mt-1">Funkübungen pro Woche</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-primary">3</p>
+          <p class="text-text-light text-sm mt-1">Funkarten (PMR, CB, AFU)</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-primary">0 €</p>
+          <p class="text-text-light text-sm mt-1">Einstieg ohne Lizenz</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-primary">24/7</p>
+          <p class="text-text-light text-sm mt-1">Funktioniert ohne Strom &amp; Internet</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blackout Teaser -->
+  <section class="py-16 bg-primary-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Was passiert, wenn der Strom ausfällt?</h2>
+      <p class="text-white/80 text-lg mb-6">
+        Kein Handynetz. Kein Internet. Kein Festnetz. Bei einem Blackout bricht innerhalb von Stunden
+        jede digitale Kommunikation zusammen. Funk ist die einzige Technologie, die dann noch funktioniert –
+        ohne Infrastruktur, ohne Stromversorgung, ohne Provider.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-left">
+        <div class="bg-white/10 rounded-xl p-6">
+          <p class="text-accent font-bold mb-2">Nachbarschaft</p>
+          <p class="text-white/80 text-sm">PMR-Funk: Sofort einsatzbereit, keine Lizenz nötig. Reichweite 1–5 km. Ab 25 €.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6">
+          <p class="text-accent font-bold mb-2">Bezirk &amp; Region</p>
+          <p class="text-white/80 text-sm">CB-Funk: Lizenzfrei, 10–30 km Reichweite. Verbindung zwischen Tälern und Orten.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6">
+          <p class="text-accent font-bold mb-2">Landesweit &amp; weltweit</p>
+          <p class="text-white/80 text-sm">Amateurfunk: Über Relais ganz Kärnten abdecken. Mit Kurzwelle weltweit. Lizenz erforderlich.</p>
+        </div>
+      </div>
+      <a href="/notfallkommunikation" class="inline-block bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition-colors">
+        Mehr zur Notfallkommunikation
+      </a>
     </div>
   </section>
 
@@ -150,10 +203,10 @@ const news = Object.values(newsFiles)
   <!-- CTA -->
   <section class="py-16 bg-primary text-white">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Bereit mitzumachen?</h2>
+      <h2 class="text-3xl font-bold mb-4">Nächsten Samstag einfach mitmachen</h2>
       <p class="text-white/80 text-lg mb-8">
-        Egal ob du schon Funkerfahrung hast oder ganz neu einsteigst – bei KÄRNTEN FUNKT bist du willkommen.
-        Tritt unserem Telegram-Kanal bei oder melde dich zum Kurs an!
+        Du brauchst nur ein PMR-Funkgerät (ab 25 €). Jeden Samstag zum Sirenenalarm auf Kanal 8
+        einschalten – und du bist Teil des Netzwerks. Keine Anmeldung, keine Lizenz, keine Kosten.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="https://t.me/kaernten_funkt" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition-colors">
